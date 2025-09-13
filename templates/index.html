@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Click Master</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+
+    <body>
+        <nav class="menu">
+            <a href="{{ url_for('index') }}">🏠 Accueil</a>
+            <a href="{{ url_for('start') }}">🎮 Jouer</a>
+            <a href="{{ url_for('aide') }}">❓ Aide</a>
+            <a href="{{ url_for('apropos') }}">ℹ️ À propos</a>
+        </nav>
+
+        <h1>Click Master</h1>
+        <button id="startBtn">START</button>
+        <div id="bestScore">Meilleur score local : 0</div>
+
+        <h2>🏆 Meilleurs scores (Top 10)</h2>
+        <table id="scoreTable" class="scoreboard">
+            <thead>
+            <tr><th>Joueur</th><th>Score</th></tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <script>
+            function chargerMeilleurScore() {
+            return localStorage.getItem('bestScore') || 0;
+            }
+            document.getElementById('bestScore').textContent = "Meilleur score local : " + chargerMeilleurScore();
+
+            document.getElementById('startBtn').addEventListener('click', () => {
+            sessionStorage.setItem('gameStarted', 'true');
+            window.location.href = "{{ url_for('start') }}";
+            });
+
+            fetch("/api/scores")
+            .then(res => res.json())
+            .then(scores => {
+                const tbody = document.querySelector("#scoreTable tbody");
+                tbody.innerHTML = "";
+                scores.forEach(s => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `<td>${s.name}</td><td>${s.score}</td>`;
+                tbody.appendChild(tr);
+                });
+            });
+        </script>
+    </body>
+</html>

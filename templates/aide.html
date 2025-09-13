@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Aide - Click Master</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+
+    <body>
+        <nav class="menu">
+            <a href="{{ url_for('index') }}">🏠 Accueil</a>
+            <a href="{{ url_for('start') }}">🎮 Jouer</a>
+            <a href="{{ url_for('aide') }}">❓ Aide</a>
+            <a href="{{ url_for('apropos') }}">ℹ️ À propos</a>
+        </nav>
+
+        <h1>Aide - Comment jouer</h1>
+
+        <div class="card">
+            <h2>🎯 Objectif</h2>
+            <p>Cliquer sur le bloc coloré qui apparaît à l’écran avant qu’il ne disparaisse. Plus vous cliquez vite et juste, plus votre score augmente.</p>
+        </div>
+
+        <div class="card">
+            <h2>🖱️ Règles simples</h2>
+            <ul>
+            <li>Un seul bloc coloré apparaît à la fois parmi 9 blocs.</li>
+            <li>Cliquez dessus (ou utilisez les touches) avant qu’il ne redevienne gris.</li>
+            <li>Cliquer ailleurs compte comme une faute.</li>
+            <li>La vitesse augmente avec les niveaux.</li>
+            <li>La partie s’arrête quand vous atteignez le nombre de fautes maximum.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>⌨️ Commandes clavier</h2>
+            <ul>
+            <li>Bloc 1 : A ou 7 (pavé num.)</li>
+            <li>Bloc 2 : Z ou 8</li>
+            <li>Bloc 3 : E ou 9</li>
+            <li>Bloc 4 : Q ou 4</li>
+            <li>Bloc 5 : S ou 5</li>
+            <li>Bloc 6 : D ou 6</li>
+            <li>Bloc 7 : W ou 1</li>
+            <li>Bloc 8 : X ou 2</li>
+            <li>Bloc 9 : C ou 3</li>
+            </ul>
+        </div>
+    </body>
+</html>

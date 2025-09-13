@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>À propos - Click Master</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+
+    <body>
+        <nav class="menu">
+            <a href="{{ url_for('index') }}">🏠 Accueil</a>
+            <a href="{{ url_for('start') }}">🎮 Jouer</a>
+            <a href="{{ url_for('aide') }}">❓ Aide</a>
+            <a href="{{ url_for('apropos') }}">ℹ️ À propos</a>
+        </nav>
+
+        <h1>À propos de Click Master</h1>
+
+        <div class="card">
+            <h2>💡 Le jeu</h2>
+            <p>Click Master est un jeu d’adresse et de réflexes pensé pour être amusant, progressif et inclusif. Jouez pour améliorer votre réactivité et votre coordination.</p>
+        </div>
+
+        <div class="card">
+            <h2>🌍 Valeurs</h2>
+            <ul>
+            <li>Accessibilité et simplicité pour tous les âges.</li>
+            <li>Apprentissage par la pratique.</li>
+            <li>Respect de l’utilisateur : fonctionne hors connexion, aucune donnée envoyée.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>👨‍💻 Créateur</h2>
+            <p>Développé par <strong>Jonathan</strong>, étudiant à l’Université de Kinshasa, passionné par le développement web et mobile, l’entrepreneuriat et la création d’expériences numériques accessibles.</p>
+        </div>
+    </body>
+</html>

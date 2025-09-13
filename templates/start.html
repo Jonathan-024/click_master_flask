@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Click Master - Jeu</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+
+    <body>
+        <nav class="menu">
+            <a href="{{ url_for('index') }}">🏠 Accueil</a>
+            <a href="{{ url_for('start') }}">🎮 Jouer</a>
+            <a href="{{ url_for('aide') }}">❓ Aide</a>
+            <a href="{{ url_for('apropos') }}">ℹ️ À propos</a>
+        </nav>
+
+        <h1>Click Master</h1>
+        <div class="hud">
+            <div id="level">NV : 01</div>
+            <div id="faults">F : 0/10</div>
+            <div id="score">SC : 000</div>
+        </div>
+
+        <div id="gameArea"></div>
+
+        <audio id="soundCorrect" src="{{ url_for('static', filename='sounds/correct.ogg') }}"></audio>
+        <audio id="soundWrong" src="{{ url_for('static', filename='sounds/wrong.ogg') }}"></audio>
+
+        <div id="endModal" class="modal">
+            <div class="modal-content">
+            <h2>Partie terminée 🎯</h2>
+            <p>Votre score : <span id="finalScore"></span></p>
+            <input type="text" id="playerName" placeholder="Entrez votre nom" />
+            <button id="saveScoreBtn">Enregistrer le score</button>
+
+            <h3>🏆 Classement</h3>
+            <table class="scoreboard">
+                <thead>
+                <tr><th>Joueur</th><th>Score</th></tr>
+                </thead>
+                <tbody id="modalScoreTable"></tbody>
+            </table>
+
+            <div style="margin-top:15px;">
+                <button onclick="location.reload()">Rejouer</button>
+                <button onclick="window.location.href='/'">Accueil</button>
+            </div>
+            </div>
+        </div>
+
+        <script src="{{ url_for('static', filename='js/game.js') }}"></script>
+    </body>
+</html>
